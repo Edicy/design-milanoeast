@@ -4,7 +4,6 @@
 <head>
 {% include "SiteHeader" %}
 {{ blog.rss_link }}
-  <title>{{site.name}} &raquo; {{page.title}}</title>
 </head>
 
 <body>
@@ -25,7 +24,18 @@
    <div id="container">
      
      <div id="content">
-              <div id="content-inner">
+        <div id="content-inner">
+          {% if tags %}
+            <div class="blog tagged-list-header">
+                <div class="header-tag-icon"></div>
+                {% if tags == empty %}
+                    {{ "no_posts_tagged" | lc }}
+                {% else %}
+                    {{ "posts_tagged" | lc }} '{{ tags | sort:"name" | map:"name" | join:"', '"}}'.
+                {% endif %}
+            </div>
+        {% endif %}
+              
        {% addbutton class="add-article" %}
                 
        {% for article in articles %}
@@ -69,7 +79,6 @@
    </div> <!-- //container -->
     
   </div> <!-- //wrap -->
-{% unless editmode %}{{ site.analytics }}{% endunless %}
   {% include "JS" %}
 </body>
 </html>

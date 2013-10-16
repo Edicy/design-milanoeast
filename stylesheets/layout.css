@@ -218,6 +218,7 @@ h3 {
   
   .comment-inner {
     margin-left: 65px;
+    line-height: 1.3em;
   }
   
   .comment-information {
@@ -421,7 +422,10 @@ width: 25%;
 
 }
 
-.mobile { display: none;}   
+.mobile { display: none;}
+@media screen and (max-width: 768px) {
+    #wrap { padding: 10px 0 25px }
+}
 @media screen and (max-width: 480px) {
     #wrap {padding-bottom: 0;}
     #langmenu ul {
@@ -435,6 +439,7 @@ width: 25%;
             padding: 0 8px 0 0;
         }
     #mainmenu {padding: 0 10px}
+    #submenu { padding: 5px 10px }
     #container {min-height: 0;}
     #header {
         padding: 0;
@@ -461,12 +466,10 @@ width: 25%;
         .sidebar-inner {
             padding: 10px;
         }
-        #search {padding: 0;}
+        #search {padding: 0; background: none !important}
             #search div {margin: 10px 0}
             #search input {
-                width: 100% !important;
-                padding: 3px 0 !important;
-                border-width: 1px 0 !important;
+                width: 93% !important;
             }
     #edicy {
         text-align: center;

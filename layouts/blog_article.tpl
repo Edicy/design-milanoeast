@@ -4,7 +4,6 @@
 <head>
 {% include "SiteHeader" %}
 {{ blog.rss_link }}
-  <title>{{article.title}} &laquo; {{page.title}} | {{site.name}}</title>
 </head>
 
 <body>
@@ -41,9 +40,22 @@
                
            <div class="blog-information">
              {{ article.author.name }} | {{"comments_for_count"|lc}}: <span class="edy-site-blog-comments-count">{{ article.comments_count }}</span>
-
-
            </div> <!-- //blog-information -->
+           {% if editmode %}
+                <div class="article-tags">
+                    <div class="article-tag-icon"></div>
+                    {% editable article.tags %}
+                </div>
+              {% else %}
+                {% unless article.tags == empty %}
+                    <div class="cfx article-tags">
+                        <div class="article-tag-icon"></div>
+                        {% for tag in article.tags %}
+                            <a href="{{ article.page.url }}/tagged/{{ tag.path }}">{{ tag.name }}</a>{% unless forloop.last %}, {% endunless %}
+                        {% endfor %}
+                    </div>
+                {% endunless %}
+            {% endif %}
          </div> <!-- blog-inner -->
        </div> <!-- //blog -->
 
@@ -55,7 +67,7 @@
          <div class="comment edy-site-blog-comment">
            <div class="comment-count">{{ forloop.index }}</div>
            <div class="comment-inner">
-             {{ comment.body }}
+             {{ comment.body_html }}
 
              <div class="comment-information">
                {{ comment.author }}, {{ comment.created_at | format_date:"%d. %B %Y" }} {% removebutton %}
@@ -119,7 +131,6 @@
    </div> <!-- //container -->
     
   </div> <!-- //wrap -->
-{% unless editmode %}{{ site.analytics }}{% endunless %}
   {% include "JS" %}
 </body>
 </html>

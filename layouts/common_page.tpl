@@ -3,7 +3,6 @@
 
 <head>
 {% include "SiteHeader" %}
-  <title>{{site.name}} &raquo; {{page.title}}</title>
 </head>
 
 <body>
@@ -52,7 +51,6 @@
    </div> <!-- //container -->
     
   </div> <!-- //wrap -->
-{% unless editmode %}{{ site.analytics }}{% endunless %}
   {% include "JS" %}
 </body>
 </html>
