@@ -23,7 +23,7 @@
    <div id="container">
      
      <div id="content">
-       <div id="content-inner" class="clearfix">
+       <div id="content-inner" class="clearfix" data-search-indexing-allowed="true">
        {% content %}
               </div>
        

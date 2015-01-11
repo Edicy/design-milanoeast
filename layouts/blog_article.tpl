@@ -31,9 +31,9 @@
          <div class="blog-inner">
            <h1>{% editable article.title plain="true" %} <span class="mobile mobile-date">{{article.created_at | format_date="short" }}</span></h1>
    
-           <div class="blog-content clearfix">
+           <div class="blog-content clearfix" data-search-indexing-allowed="true">
              {% editable article.excerpt %}
-             <div style="padding-top: 10px">
+             <div style="padding-top: 10px" data-search-indexing-allowed="true">
                {% editable article.body %}
              </div> 
            </div> <!-- //blog-content -->
