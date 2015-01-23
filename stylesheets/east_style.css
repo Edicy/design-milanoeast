@@ -214,3 +214,22 @@ div.edy-taglist-openarrow:after {
 .tagged-list-header  a {border: none; text-decoration: none;}
 .tagged-list-header  a:hover { border-bottom: 1px solid #BEBEBE; }
 .article-tags .edy-taglist { margin-left: 25px; } 
+
+/* Voog cms style overrides */
+#container .edy-empty-bordered {
+  color: rgba(255,255,255,.33);
+  border-color: rgba(255,255,255,.33);
+}
+#container .edy-texteditor-view.placeholder {
+  color: rgba(255,255,255,.5);
+}
+#container .edy-content-element-hover {
+  border-color: rgba(255,255,255,.2);
+}
+#container .edy-texteditor-active {
+  outline-color: rgba(255,255,255,.3);
+}
+#container .edy-fe-field-active,
+#container .edy-fe-active .edy-fe-field:hover {
+  outline-color: rgba(255,255,255,.2);
+}

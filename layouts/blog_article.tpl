@@ -24,7 +24,7 @@
    <div id="container" class="clearfix">
      
      <div id="content">
-       <div id="content-inner">
+       <div id="content-inner" class="clearfix">
               
        <div class="blog">
          <div class="blog-date"><span>{{ article.created_at | format_date:"%d" }}</span><br />{{ article.created_at | format_date:"%b" }}</div>
@@ -109,7 +109,7 @@
               </div>
      </div> <!-- //content -->
      
-     <div id="sidebar" class="">
+     <div id="sidebar" class="clearfix">
        {% include "News" %}
         
         

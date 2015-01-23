@@ -29,7 +29,7 @@
        
      </div> <!-- //content -->
      
-     <div id="sidebar" class="">
+     <div id="sidebar" class="clearfix">
        {% include "News" %}
         
         
