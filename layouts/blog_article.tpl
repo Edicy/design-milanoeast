@@ -7,9 +7,9 @@
 </head>
 
 <body>
-	
+
 	<div id="wrap" class="content-hyphenate">
-   
+
           {% include "Langmenu" %}
           {% include "Mainmenu" %}
 
@@ -18,26 +18,26 @@
        <tr>
          <td class="title clearfix">{% if editmode %}{% editable site.header %}{%else%}<a href="{{ site.root_item.url }}">{% editable site.header %}</a>{% endif %}</td>
        </tr>
-     </table> 
+     </table>
    </div><!-- //header -->
-   
+
    <div id="container" class="clearfix">
-     
+
      <div id="content">
        <div id="content-inner" class="clearfix">
-              
+
        <div class="blog">
          <div class="blog-date"><span>{{ article.created_at | format_date:"%d" }}</span><br />{{ article.created_at | format_date:"%b" }}</div>
          <div class="blog-inner">
            <h1>{% editable article.title plain="true" %} <span class="mobile mobile-date">{{article.created_at | format_date="short" }}</span></h1>
-   
+
            <div class="blog-content clearfix" data-search-indexing-allowed="true">
              {% editable article.excerpt %}
              <div style="padding-top: 10px" data-search-indexing-allowed="true">
                {% editable article.body %}
-             </div> 
+             </div>
            </div> <!-- //blog-content -->
-               
+
            <div class="blog-information">
              {{ article.author.name }} | {{"comments_for_count"|lc}}: <span class="edy-site-blog-comments-count">{{ article.comments_count }}</span>
            </div> <!-- //blog-information -->
@@ -63,7 +63,7 @@
                 <a name="comments"></a>
          {% unless article.new_record? %}<h1>{{"comments"|lc}}</h1>{% endunless %}
          {% for comment in article.comments %}
-         
+
          <div class="comment edy-site-blog-comment">
            <div class="comment-count">{{ forloop.index }}</div>
            <div class="comment-inner">
@@ -74,12 +74,12 @@
              </div> <!-- //comment-information -->
            </div> <!-- comment-inner -->
          </div> <!-- //comment -->
-         
+
          {% endfor %}
-         
-         
+
+
          {% unless article.new_record? %}<h1>{{"add_a_comment"|lc}}</h1>{% endunless %}
-         
+
          {% commentform %}
 {% unless comment.valid? %}<ul>
 {% for error in comment.errors %}
@@ -104,32 +104,32 @@
              </tr>
            </table>
          {% endcommentform %}
-         
+
        </div> <!-- //comments -->
               </div>
      </div> <!-- //content -->
-     
+
      <div id="sidebar" class="clearfix">
        {% include "News" %}
-        
-        
-        
+
+
+
               {% include "Sidebar" %}
-        
-        
-        
+
+
+
         <div id="edicy">
           {% loginblock %}{{ "footer_login_link" | lc }}{% endloginblock %}
         </div> <!-- //edicy -->
-        
-        
-         
+
+
+
      </div> <!-- //sidebar -->
-     
+
      <div class="clearer"></div>
-     
+
    </div> <!-- //container -->
-    
+
   </div> <!-- //wrap -->
   {% include "JS" %}
 </body>

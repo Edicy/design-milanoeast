@@ -7,9 +7,9 @@
 </head>
 
 <body>
-	
+
 	<div id="wrap" class="content-hyphenate">
-   
+
           {% include "Langmenu" %}
           {% include "Mainmenu" %}
 
@@ -18,11 +18,11 @@
        <tr>
          <td class="title clearfix">{% if editmode %}{% editable site.header %}{%else%}<a href="{{ site.root_item.url }}">{% editable site.header %}</a>{% endif %}</td>
        </tr>
-     </table> 
+     </table>
    </div><!-- //header -->
-   
+
    <div id="container" class="clearfix">
-     
+
      <div id="content">
         <div id="content-inner">
           {% if tags %}
@@ -35,19 +35,19 @@
                 {% endif %}
             </div>
         {% endif %}
-              
+
        {% addbutton class="add-article" %}
-                
+
        {% for article in articles %}
        <div class="blog">
          <div class="blog-date"><span>{{ article.created_at | format_date:"%d" }}</span><br />{{ article.created_at | format_date:"%b" }}</div>
          <div class="blog-inner">
            <h1><a href="{{ article.url }}">{{ article.title }} <span class="mobile mobile-date">{{article.created_at | format_date="short" }}</span></a></h1>
-   
+
            <div class="blog-content clearfix">
              {{ article.excerpt }} <a href="{{ article.url }}">{{"read_more"|lc}}</a>
            </div> <!-- //blog-content -->
-               
+
            <div class="blog-information">
              {{ article.author.name }} | <a href="{{ article.url }}#comments">{{"comments_for_count"|lc}}: {{ article.comments_count }}</a>
            </div> <!-- //blog-information -->
@@ -56,28 +56,28 @@
 {% endfor %}
             </div>
      </div> <!-- //content -->
-     
+
      <div id="sidebar" class="clearfix">
        {% include "News" %}
-        
-        
-        
+
+
+
               {% include "Sidebar" %}
 
-             
-        
+
+
         <div id="edicy">
           {% loginblock %}{{ "footer_login_link" | lc }}{% endloginblock %}
         </div> <!-- //edicy -->
-        
-        
-         
+
+
+
      </div> <!-- //sidebar -->
-     
+
      <div class="clearer"></div>
-     
+
    </div> <!-- //container -->
-    
+
   </div> <!-- //wrap -->
   {% include "JS" %}
 </body>
